@@ -1,6 +1,7 @@
 # 環境構築
 
 ---
+
 ## 1. アプリケーション名
 
 ### coachtechフリマ
@@ -23,13 +24,13 @@
 
 _.envファイルは、11行目以降のDBの部分を以下の内容に変更_
 
-DB_HOST=127.0.0.1   →   DB_HOST=mysql
+DB_HOST=127.0.0.1 → DB_HOST=mysql
 
-DB_DATABASE=laravel   →   DB_DATABASE=laravel_db
+DB_DATABASE=laravel → DB_DATABASE=laravel_db
 
-DB_USERNAME=root   →   DB_USERNAME=laravel_user
+DB_USERNAME=root → DB_USERNAME=laravel_user
 
-DB_PASSWORD=   →   DB_PASSWORD=laravel_pass
+DB_PASSWORD= → DB_PASSWORD=laravel_pass
 
 ### ④php artisan key:generate
 
@@ -55,6 +56,9 @@ DB_PASSWORD=   →   DB_PASSWORD=laravel_pass
 
 ### ・nginx/1.21.1
 
+### ・mailhog
+
 ## 6. ER図
-<img width="1370" height="831" alt="free-market drawio" src="https://github.com/user-attachments/assets/10251a76-4597-49c3-961a-59bc6de49879" />
+<img width="1600" height="801" alt="free-market drawio" src="https://github.com/user-attachments/assets/82890d8a-1a0b-4bed-a66e-04e0d77556f0" />
+
 
