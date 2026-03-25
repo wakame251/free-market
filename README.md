@@ -6,7 +6,11 @@
 
 ### coachtechフリマ
 
-## 2. Dockerビルド
+## 2.プロジェクト概要
+
+### アイテムの出品と購入をするためのフリマアプリを開発
+
+## 3. Dockerビルド
 
 ### ①git clone git@github.com:wakame251/free-market.git
 
@@ -14,7 +18,7 @@
 
 ### ③docker-compose up -d --build
 
-## 3. Laravel環境構築
+## 4. Laravel環境構築
 
 ### ①docker-compose exec php bash
 
@@ -38,7 +42,7 @@ DB_PASSWORD= → DB_PASSWORD=laravel_pass
 
 ### ⑥php artisan db:seed
 
-## 4. 開発環境
+## 5. 開発環境
 
 ### ・商品一覧画面：http://localhost/
 
@@ -46,7 +50,25 @@ DB_PASSWORD= → DB_PASSWORD=laravel_pass
 
 ### ・phpMyAdmin：http://localhost:8080/
 
-## 5. 使用技術（実行環境）
+## 6.テストに使用したアカウント
+
+### 管理者
+
+#### ユーザー名：管理者
+
+#### メールアドレス：test@administrator.com
+
+#### パスワード：administrator0000
+
+### 一般ユーザー
+
+#### ユーザー名：一般ユーザー
+
+#### メールアドレス：test@user.com
+
+#### パスワード：user0000
+
+## 7. 使用技術（実行環境）
 
 ### ・PHP Version 8.1.34
 
@@ -58,7 +80,7 @@ DB_PASSWORD= → DB_PASSWORD=laravel_pass
 
 ### ・mailhog
 
-## 6. ER図
+## 8. ER図
 <img width="1600" height="801" alt="free-market drawio" src="https://github.com/user-attachments/assets/82890d8a-1a0b-4bed-a66e-04e0d77556f0" />
 
 
