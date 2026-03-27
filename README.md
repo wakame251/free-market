@@ -1,16 +1,33 @@
+# プロジェクトについて
+
+---
+
+## アプリケーション名
+
+### coachtechフリマ
+
+## 概要
+
+### アイテムの出品と購入をするためのフリマアプリを開発
+
+## 主な機能
+
+- 会員登録 / ログイン機能（Laravel Fortify）
+- 商品一覧表示
+- 商品検索（部分一致）
+- 商品詳細表示
+- 商品出品機能
+- 商品購入機能（Stripe Checkout）
+- いいね機能（トグル）
+- コメント機能
+- マイページ（購入一覧 / 出品一覧）
+- プロフィール編集（画像アップロード対応）
+
 # 環境構築
 
 ---
 
-## 1. アプリケーション名
-
-### coachtechフリマ
-
-## 2.プロジェクト概要
-
-### アイテムの出品と購入をするためのフリマアプリを開発
-
-## 3. Dockerビルド
+##  Dockerビルド
 
 ### ①git clone git@github.com:wakame251/free-market.git
 
@@ -18,7 +35,7 @@
 
 ### ③docker-compose up -d --build
 
-## 4. Laravel環境構築
+##  Laravel環境構築
 
 ### ①docker-compose exec php bash
 
@@ -26,15 +43,15 @@
 
 ### ③cp .env.example .env
 
-_.envファイルは、11行目以降のDBの部分を以下の内容に変更_
+_.envのDB設定を以下に変更_
 
-DB_HOST=127.0.0.1 → DB_HOST=mysql
+DB_HOST=mysql
 
-DB_DATABASE=laravel → DB_DATABASE=laravel_db
+DB_DATABASE=laravel_db
 
-DB_USERNAME=root → DB_USERNAME=laravel_user
+DB_USERNAME=laravel_user
 
-DB_PASSWORD= → DB_PASSWORD=laravel_pass
+DB_PASSWORD=laravel_pass
 
 ### ④php artisan key:generate
 
@@ -42,45 +59,56 @@ DB_PASSWORD= → DB_PASSWORD=laravel_pass
 
 ### ⑥php artisan db:seed
 
-## 5. 開発環境
+### ⑦php artisan test
 
-### ・商品一覧画面：http://localhost/
+## 開発環境
+
+### ・商品一覧画面（トップページ）：http://localhost/
 
 ### ・会員登録画面：http://localhost/register
 
+### ・ログイン画面:http://localhost/login
+
 ### ・phpMyAdmin：http://localhost:8080/
 
-## 6.テストに使用したアカウント
+# テストに使用したアカウント
 
-### 管理者
+---
 
-#### ユーザー名：管理者
+## 一般ユーザー①
 
-#### メールアドレス：test@administrator.com
+### ユーザー名：一般ユーザー①
 
-#### パスワード：administrator0000
+### メールアドレス：test@userone.com
 
-### 一般ユーザー
+### パスワード：userone0000
 
-#### ユーザー名：一般ユーザー
+## 一般ユーザー②
 
-#### メールアドレス：test@user.com
+### ユーザー名：一般ユーザー②
 
-#### パスワード：user0000
+### メールアドレス：test@usertwo.com
 
-## 7. 使用技術（実行環境）
+### パスワード：usertwo0000
 
-### ・PHP Version 8.1.34
+# 使用技術（実行環境）
 
-### ・Laravel Framework 8.83.8
+---
 
-### ・mysql Ver 8.0.26
+## ・PHP Version 8.1.34
 
-### ・nginx/1.21.1
+## ・Laravel Framework 8.83.8
 
-### ・mailhog
+## ・mysql Ver 8.0.26
 
-## 8. ER図
+## ・nginx/1.21.1
+
+## ・mailhog
+
+# ER図
+
+---
+
 <img width="1600" height="801" alt="free-market drawio" src="https://github.com/user-attachments/assets/82890d8a-1a0b-4bed-a66e-04e0d77556f0" />
 
 
