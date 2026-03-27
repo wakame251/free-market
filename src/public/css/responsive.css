@@ -1,0 +1,162 @@
+/* =================================
+   PC (1400px - 1540px)
+================================= */
+
+@media screen and (min-width:1400px) and (max-width:1540px) {
+
+    /* header */
+    .header__inner {
+        max-width: 1280px;
+    }
+
+    /* item index */
+    .item-grid {
+        gap: 44px;
+    }
+
+    .item-card__image {
+        height: 300px;
+    }
+
+    /* item show */
+    .item-show {
+        max-width: 1280px;
+    }
+
+    .item-show__main {
+        gap: 70px;
+    }
+
+    /* profile */
+    .mypage {
+        max-width: 1280px;
+    }
+
+    /* purchase */
+    .purchase {
+        max-width: 1280px;
+        grid-template-columns: 1.3fr 0.7fr;
+    }
+
+    /* sell */
+    .sell {
+        max-width: 760px;
+    }
+
+}
+
+/* =================================
+   Tablet (768px - 850px)
+================================= */
+
+@media screen and (min-width:768px) and (max-width:850px) {
+
+    /* header */
+    .header__inner {
+        padding: 0 16px;
+    }
+
+    .header__search-input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .header__nav {
+        gap: 10px;
+    }
+
+    .header__logo {
+        font-size: 18px;
+    }
+
+    /* item index */
+
+    .item-index {
+        padding: 0 16px;
+    }
+
+    .item-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .item-card__image {
+        height: 220px;
+    }
+
+    /* item show */
+
+    .item-show {
+        padding: 24px 16px 50px;
+    }
+
+    .item-show__main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .item-show__name {
+        font-size: 22px;
+    }
+
+    /* profile */
+
+    .mypage {
+        padding: 24px 16px 50px;
+    }
+
+    .mypage__profile {
+        grid-template-columns: 100px 1fr;
+        row-gap: 16px;
+    }
+
+    .mypage__avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .mypage__name {
+        font-size: 22px;
+    }
+
+    .mypage__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* purchase */
+
+    .purchase {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px 16px 50px;
+    }
+
+    /* sell */
+
+    .sell {
+        max-width: 560px;
+        padding: 0 20px;
+    }
+
+    .sell__textarea {
+        min-height: 100px;
+    }
+
+    /* profile edit */
+
+    .profile {
+        max-width: 560px;
+    }
+
+    .profile__avatar {
+        width: 76px;
+        height: 76px;
+    }
+
+    /* address edit */
+
+    .address-edit {
+        padding: 40px 20px 60px;
+    }
+
+}

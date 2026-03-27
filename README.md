@@ -27,7 +27,7 @@
 
 ---
 
-##  Dockerビルド
+## Dockerビルド
 
 ### ①git clone git@github.com:wakame251/free-market.git
 
@@ -35,7 +35,7 @@
 
 ### ③docker-compose up -d --build
 
-##  Laravel環境構築
+## Laravel環境構築
 
 ### ①docker-compose exec php bash
 
@@ -110,5 +110,3 @@ DB_PASSWORD=laravel_pass
 ---
 
 <img width="1600" height="801" alt="free-market drawio" src="https://github.com/user-attachments/assets/82890d8a-1a0b-4bed-a66e-04e0d77556f0" />
-
-

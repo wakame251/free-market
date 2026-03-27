@@ -1,0 +1,133 @@
+.item-index {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.item-index__tabs {
+    display: flex;
+    gap: 40px;
+    border-bottom: 2px solid #333;
+    padding: 10px 0;
+}
+
+.item-index__tab {
+    text-decoration: none;
+    font-weight: 700;
+    color: #666;
+    padding: 10px 20px;
+}
+
+.item-index__tab.is-active {
+    color: #000;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.item-card__image-wrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.item-card__image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    background: #eee;
+}
+
+.item-card__image-placeholder {
+    width: 100%;
+    height: 260px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.item-card__sold {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #000;
+    color: #fff;
+    padding: 6px 10px;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.item-card__name {
+    margin-top: 10px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* PC: 1400-1540 */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .item-index {
+        max-width: 1280px;
+    }
+
+    .item-grid {
+        gap: 44px;
+    }
+
+    .item-card__image {
+        height: 300px;
+    }
+
+    .item-card__image-placeholder {
+        height: 300px;
+    }
+}
+
+/* Tablet: 768-850 */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .item-index {
+        padding: 0 16px;
+    }
+
+    .item-index__tabs {
+        gap: 24px;
+    }
+
+    .item-index__tab {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .item-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        padding: 28px 0;
+    }
+
+    .item-card__image {
+        height: 220px;
+    }
+
+    .item-card__image-placeholder {
+        height: 220px;
+        font-size: 22px;
+    }
+
+    .item-card__sold {
+        top: 10px;
+        left: 10px;
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .item-card__name {
+        font-size: 14px;
+    }
+}
