@@ -53,13 +53,15 @@ DB_USERNAME=laravel_user
 
 DB_PASSWORD=laravel_pass
 
-### ④ php artisan storage:link
+### ④ php artisan key:generate
 
-### ⑤ php artisan migrate
+### ⑤ php artisan storage:link
 
-### ⑥ php artisan db:seed
+### ⑥ php artisan migrate
 
-### ⑦ php artisan test
+### ⑦ php artisan db:seed
+
+### ⑧ php artisan test
 
 ## 開発環境
 
@@ -110,3 +112,4 @@ DB_PASSWORD=laravel_pass
 ---
 
 <img width="1600" height="801" alt="free-market drawio" src="https://github.com/user-attachments/assets/82890d8a-1a0b-4bed-a66e-04e0d77556f0" />
+
