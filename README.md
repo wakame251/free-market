@@ -53,13 +53,13 @@ DB_USERNAME=laravel_user
 
 DB_PASSWORD=laravel_pass
 
-### ④php artisan key:generate
+### ④ php artisan storage:link
 
-### ⑤php artisan migrate
+### ⑤ php artisan migrate
 
-### ⑥php artisan db:seed
+### ⑥ php artisan db:seed
 
-### ⑦php artisan test
+### ⑦ php artisan test
 
 ## 開発環境
 
