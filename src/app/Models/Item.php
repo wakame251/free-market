@@ -18,6 +18,7 @@ class Item extends Model
         'image_path',
         'condition',
         'status',
+        'category_id',
     ];
 
     // 出品者（N:1）

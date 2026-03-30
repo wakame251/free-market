@@ -1,5 +1,6 @@
 <?php
 // app/Http/Controllers/SellController.php
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ExhibitionRequest;
@@ -12,8 +13,6 @@ class SellController extends Controller
     {
         $categories = Category::query()->orderBy('id')->get();
 
-        // ✅「テーブルのconditionから選択項目」＝ items.condition の既存値を選択肢にする
-        // まだデータが少ない場合は、fallbackとして固定配列も混ぜる
         $conditions = Item::query()
             ->select('condition')
             ->whereNotNull('condition')
@@ -41,26 +40,26 @@ class SellController extends Controller
         // 画像保存
         $path = $request->file('image')->store('items', 'public');
 
-        // まず items テーブルに保存（既存仕様に合わせて category_id は先頭を入れておく）
+        // category_ids を 0 始まりの配列に詰め直す
         $categoryIds = $request->input('category_ids', []);
+        $categoryIds = is_array($categoryIds) ? array_values($categoryIds) : [];
         $primaryCategoryId = $categoryIds[0] ?? null;
 
         $rawPrice = $request->input('price');
         $price = (int) str_replace(',', '', $rawPrice);
 
         $item = Item::create([
-            'seller_id' => $user->id,
-            'item_name' => $request->item_name,
-            'brand_name' => $request->brand_name,
+            'seller_id'   => $user->id,
+            'item_name'   => $request->item_name,
+            'brand_name'  => $request->brand_name,
             'description' => $request->description,
-            'price' => $price,
-            'image_path' => $path,
-            'condition' => $request->condition,
-            'status' => 'on_sale',
-            'category_id' => $primaryCategoryId, // 互換用
+            'price'       => $price,
+            'image_path'  => $path,
+            'condition'   => $request->condition,
+            'status'      => 'on_sale',
+            'category_id' => $primaryCategoryId,
         ]);
 
-        // 複数カテゴリは pivot に同期
         $item->categories()->sync($categoryIds);
 
         return redirect()->route('items.index')->with('message', '出品しました');
