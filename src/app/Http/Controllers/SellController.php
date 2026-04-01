@@ -57,7 +57,7 @@ class SellController extends Controller
             'image_path'  => $path,
             'condition'   => $request->condition,
             'status'      => 'on_sale',
-            'category_id' => $primaryCategoryId,
+            'category_id' => $request->category_ids[0] ?? null, // 先頭カテゴリを代表カテゴリとして保存
         ]);
 
         $item->categories()->sync($categoryIds);

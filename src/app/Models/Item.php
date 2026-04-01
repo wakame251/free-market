@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Item extends Model
 {
     use HasFactory;
-
+    // category_id は代表カテゴリ保持用。
+    // 実際の複数カテゴリ紐付けは category_item テーブルで管理する。
+    // テスト要件上、先頭カテゴリを items.category_id にも保存している。
     protected $fillable = [
         'seller_id',
         'item_name',

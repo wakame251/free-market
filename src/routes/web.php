@@ -55,12 +55,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/purchase/address/{item_id}', [PurchaseAddressController::class, 'update'])->name('purchase.address.update');
 
     Route::get('/purchase/{item_id}', [PurchaseController::class, 'create'])
-  ->name('purchase.create');
+    ->name('purchase.create');
 });
 
 Route::post('/stripe/webhook', [StripeWebhookController::class, 'handle'])
     ->name('stripe.webhook');
-    
+
 Route::middleware('auth','verified')->group(function () {
     // プロフィール表示
     Route::get('/mypage', [ProfileController::class, 'show'])->name('profile.show');

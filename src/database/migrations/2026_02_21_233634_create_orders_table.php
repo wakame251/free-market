@@ -10,13 +10,17 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            // 1商品は1回だけ売れる想定 => UNIQUE
             $table->foreignId('item_id')->constrained('items')->cascadeOnDelete();
             $table->unique('item_id');
 
-            $table->foreignId('buyer_id')
-                ->constrained('users')
-                ->cascadeOnDelete();
+            $table->string('stripe_session_id')->nullable()->unique();
+
+            $table->foreignId('buyer_id')->constrained('users')->cascadeOnDelete();
+
+            $table->string('payment_method');
+            $table->string('post_code');
+            $table->string('address');
+            $table->string('building')->nullable();
 
             $table->unsignedInteger('price_at_purchase');
             $table->timestamp('purchased_at')->useCurrent();

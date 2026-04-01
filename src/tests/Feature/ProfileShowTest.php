@@ -20,7 +20,7 @@ class ProfileShowTest extends TestCase
         ]);
 
         $user->profile()->create([
-            'users_name' => 'テストユーザー',
+            'user_name' => 'テストユーザー',
             'avatar_path' => 'avatars/test.png',
             'post_code' => '123-4567',
             'address' => '大阪府大阪市1-1-1',

@@ -56,8 +56,8 @@
     <input
       class="profile__input"
       type="text"
-      name="users_name"
-      value="{{ old('users_name', $profile->users_name ?? '') }}"
+      name="user_name"
+      value="{{ old('user_name', $user->user_name ?? '') }}"
     >
 
     <label class="profile__label">郵便番号</label>

@@ -16,23 +16,25 @@ return new class extends Migration {
                 ->cascadeOnDelete();
 
             $table->string('item_name', 255);
-            $table->text('description')->nullable();
+            $table->text('description');
 
             // 金額は整数(円)で持つのが定番（小数の誤差回避）
             $table->unsignedInteger('price');
 
-            $table->string('image_path')->nullable();
+            $table->string('image_path');
 
-            $table->string('condition')->nullable();
+            $table->string('condition');
 
             $table->string('brand_name')->nullable();
 
+            // 代表カテゴリ保持用。
+            // 実際の複数カテゴリ管理は category_item テーブルで行う。
+            // テスト要件に合わせ、先頭カテゴリを items.category_id にも保存する。
             $table->foreignId('category_id')
-                ->nullable()
                 ->constrained('categories')
-                ->nullOnDelete();
+                ->restrictOnDelete();
 
-            $table->string('status')->nullable();
+            $table->string('status')->default('on_sale');
 
             $table->timestamps();
 
