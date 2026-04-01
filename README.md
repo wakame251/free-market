@@ -111,5 +111,6 @@ DB_PASSWORD=laravel_pass
 
 ---
 
-<img width="1600" height="801" alt="free-market drawio" src="https://github.com/user-attachments/assets/82890d8a-1a0b-4bed-a66e-04e0d77556f0" />
+<img width="3542" height="3087" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/6c336b2e-f213-40ce-a658-fd026fced90e" />
+
 
