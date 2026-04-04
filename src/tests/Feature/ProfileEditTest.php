@@ -19,13 +19,13 @@ class ProfileEditTest extends TestCase
     {
         // 1. ユーザー作成
         $user = User::factory()->create([
+            'user_name' => 'テストユーザー',
             'email' => 'test@example.com',
         ]);
 
         // 2. プロフィール作成
         Profile::create([
             'user_id' => $user->id,
-            'users_name' => 'テストユーザー',
             'post_code' => '123-4567',
             'address' => '東京都新宿区1-2-3',
             'building' => 'テストマンション101',
@@ -33,7 +33,7 @@ class ProfileEditTest extends TestCase
         ]);
 
         // 3. ログインしてプロフィール編集画面を開く
-        $response = $this->actingAs($user)->get('/mypage/profile');
+        $response = $this->actingAs($user)->get(route('profile.edit'));
 
         // 4. 画面表示確認
         $response->assertStatus(200);
@@ -42,11 +42,9 @@ class ProfileEditTest extends TestCase
         $response->assertSee('テストユーザー');
         $response->assertSee('123-4567');
         $response->assertSee('東京都新宿区1-2-3');
-
-        // building も表示されるなら確認
         $response->assertSee('テストマンション101');
 
-        // 画像パスがHTML内に含まれることを確認
-        $response->assertSee('avatars/test.png');
+        // 6. 画像パスがHTML内に含まれることを確認
+        $response->assertSee('storage/avatars/test.png', false);
     }
 }

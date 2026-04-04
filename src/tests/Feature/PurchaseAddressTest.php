@@ -19,7 +19,6 @@ class PurchaseAddressTest extends TestCase
         $seller = User::factory()->create();
 
         $user->profile()->create([
-            'users_name' => $user->user_name,
             'post_code' => '111-1111',
             'address' => '大阪府大阪市旧住所1-1-1',
             'building' => '旧ビル',
