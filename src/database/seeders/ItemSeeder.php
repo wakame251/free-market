@@ -11,7 +11,6 @@ class ItemSeeder extends Seeder
 {
     public function run(): void
     {
-        // 重複しないように firstOrCreate を使う
         $seller1 = User::firstOrCreate(
             ['email' => 'a@example.com'],
             [
@@ -48,7 +47,7 @@ class ItemSeeder extends Seeder
         $items = [
             [
                 'item_name' => '腕時計',
-                'image_path' => 'items/watch.jpg',
+                'image_path' => 'images/sample/watch.jpg',
                 'price' => 15000,
                 'category_ids' => [$catFashion->id, $catMens->id, $catAccessories->id],
                 'brand_name' => 'Rolax',
@@ -57,7 +56,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'HDD',
-                'image_path' => 'items/HDD.jpg',
+                'image_path' => 'images/sample/hdd.jpg',
                 'price' => 5000,
                 'category_ids' => [$catElec->id],
                 'brand_name' => '西芝',
@@ -66,7 +65,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => '玉ねぎ3束',
-                'image_path' => 'items/onion.jpg',
+                'image_path' => 'images/sample/onion.jpg',
                 'price' => 300,
                 'category_ids' => [$catKitchen->id],
                 'brand_name' => 'なし',
@@ -75,7 +74,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => '革靴',
-                'image_path' => 'items/leather_shoes.jpg',
+                'image_path' => 'images/sample/leather_shoes.jpg',
                 'price' => 4000,
                 'category_ids' => [$catFashion->id, $catMens->id],
                 'brand_name' => null,
@@ -84,7 +83,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'ノートPC',
-                'image_path' => 'items/Notebook_PC.jpg',
+                'image_path' => 'images/sample/notebook_pc.jpg',
                 'price' => 45000,
                 'category_ids' => [$catElec->id],
                 'brand_name' => null,
@@ -93,7 +92,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'マイク',
-                'image_path' => 'items/microphone.jpg',
+                'image_path' => 'images/sample/microphone.jpg',
                 'price' => 8000,
                 'category_ids' => [$catElec->id],
                 'brand_name' => 'なし',
@@ -102,7 +101,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'ショルダーバッグ',
-                'image_path' => 'items/shoulder_bag.jpg',
+                'image_path' => 'images/sample/shoulder_bag.jpg',
                 'price' => 3500,
                 'category_ids' => [$catFashion->id, $catMens->id],
                 'brand_name' => null,
@@ -111,7 +110,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'タンブラー',
-                'image_path' => 'items/tumbler.jpg',
+                'image_path' => 'images/sample/tumbler.jpg',
                 'price' => 500,
                 'category_ids' => [$catKitchen->id, $catInterior->id],
                 'brand_name' => 'なし',
@@ -120,7 +119,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'コーヒーミル',
-                'image_path' => 'items/coffee_mill.jpg',
+                'image_path' => 'images/sample/coffee_mill.jpg',
                 'price' => 4000,
                 'category_ids' => [$catKitchen->id, $catInterior->id],
                 'brand_name' => 'Starbacks',
@@ -129,7 +128,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'item_name' => 'メイクセット',
-                'image_path' => 'items/makeup_set.jpg',
+                'image_path' => 'images/sample/makeup_set.jpg',
                 'price' => 2500,
                 'category_ids' => [$catCosme->id, $catLadies->id, $catFashion->id],
                 'brand_name' => null,
@@ -138,7 +137,6 @@ class ItemSeeder extends Seeder
             ],
         ];
 
-        // 同じ商品を「on_sale」「sold」で2件ずつ作る
         foreach ($items as $data) {
             $representativeCategoryId = $data['category_ids'][0];
 
@@ -151,7 +149,7 @@ class ItemSeeder extends Seeder
                 'status' => 'on_sale',
                 'description' => $data['description'],
                 'condition' => $data['condition'],
-                'category_id' => $representativeCategoryId, // 代表カテゴリ
+                'category_id' => $representativeCategoryId,
             ]);
 
             $item1->categories()->sync($data['category_ids']);
@@ -165,7 +163,7 @@ class ItemSeeder extends Seeder
                 'status' => 'sold',
                 'description' => $data['description'],
                 'condition' => $data['condition'],
-                'category_id' => $representativeCategoryId, // 代表カテゴリ
+                'category_id' => $representativeCategoryId,
             ]);
 
             $item2->categories()->sync($data['category_ids']);

@@ -9,8 +9,8 @@
   <div class="mypage__top">
     <div class="mypage__profile">
       <div class="mypage__avatar">
-        @if (!empty($profile?->avatar_path))
-          <img src="{{ asset('storage/' . $profile->avatar_path) }}" alt="avatar">
+        @if (!empty($profile?->avatar_url))
+          <img src="{{ $profile->avatar_url }}" alt="avatar">
         @else
           <div class="mypage__avatar-placeholder"></div>
         @endif
@@ -44,8 +44,8 @@
     @forelse ($items as $item)
       <a class="mypage-card" href="{{ route('items.show', ['item_id' => $item->id]) }}">
         <div class="mypage-card__image-wrap">
-          @if ($item->image_path)
-            <img class="mypage-card__image" src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->item_name }}">
+          @if ($item->image_url)
+            <img class="mypage-card__image" src="{{ $item->image_url }}" alt="{{ $item->item_name }}">
           @else
             <div class="mypage-card__image-placeholder">商品画像</div>
           @endif

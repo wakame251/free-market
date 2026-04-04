@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Item extends Model
 {
     use HasFactory;
+
     // category_id は代表カテゴリ保持用。
     // 実際の複数カテゴリ紐付けは category_item テーブルで管理する。
     // テスト要件上、先頭カテゴリを items.category_id にも保存している。
@@ -35,7 +36,6 @@ class Item extends Model
         return $this->hasOne(Order::class);
     }
 
-
     // コメント（1:N）
     public function comments()
     {
@@ -55,18 +55,35 @@ class Item extends Model
             ->withTimestamps();
     }
 
+    // カテゴリ（N:N）
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_item')->withTimestamps();
+    }
+
     // Sold判定（ordersの有無に寄せる）
     public function getIsSoldAttribute(): bool
     {
-        // 既に eager load されている場合はそれを使う
         if ($this->relationLoaded('order')) {
             return $this->order !== null;
         }
+
         return $this->order()->exists();
     }
 
-    public function categories()
+    // 商品画像URL
+    // Seeder画像: images/sample/xxx.jpg → asset(...)
+    // アップロード画像: items/xxx.jpg → asset('storage/' . ...)
+    public function getImageUrlAttribute(): ?string
     {
-    return $this->belongsToMany(Category::class,'category_item')->withTimestamps();
+        if (empty($this->image_path)) {
+            return null;
+        }
+
+        if (str_starts_with($this->image_path, 'images/')) {
+            return asset($this->image_path);
+        }
+
+        return asset('storage/' . $this->image_path);
     }
 }

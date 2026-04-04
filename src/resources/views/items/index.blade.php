@@ -19,23 +19,23 @@
   </div>
 
   <div class="item-grid">
-  @foreach ($items as $item)
-    <a class="item-card" href="{{ route('items.show', ['item_id' => $item->id]) }}">
-      <div class="item-card__image-wrap">
-        @if ($item->is_sold)
-          <div class="item-card__sold">Sold</div>
-        @endif
+    @foreach ($items as $item)
+      <a class="item-card" href="{{ route('items.show', ['item_id' => $item->id]) }}">
+        <div class="item-card__image-wrap">
+          @if ($item->is_sold)
+            <div class="item-card__sold">Sold</div>
+          @endif
 
-        @if ($item->image_path)
-          <img class="item-card__image" src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->item_name }}">
-        @else
-          <div class="item-card__image-placeholder">商品画像</div>
-        @endif
-      </div>
+          @if ($item->image_url)
+            <img class="item-card__image" src="{{ $item->image_url }}" alt="{{ $item->item_name }}">
+          @else
+            <div class="item-card__image-placeholder">商品画像</div>
+          @endif
+        </div>
 
-      <div class="item-card__name">{{ $item->item_name }}</div>
-    </a>
-  @endforeach
+        <div class="item-card__name">{{ $item->item_name }}</div>
+      </a>
+    @endforeach
   </div>
 </div>
 @endsection
