@@ -15,9 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            CategorySeeder::class,
+            ProfileSeeder::class,
+
+            // 基本データ
             ItemSeeder::class,
-            OrderSeeder::class,
+
+            // デモ用ストーリー
+            DemoItemSeeder::class,
+            DemoTransactionSeeder::class,
         ]);
     }
 }

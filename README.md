@@ -61,7 +61,11 @@ DB_PASSWORD=laravel_pass
 
 ### ⑦ php artisan db:seed
 
-### ⑧ php artisan test
+## テストケースについて
+
+_各機能のテストについては、以下のコマンドで実行_
+
+php artisan test
 
 ## 開発環境
 

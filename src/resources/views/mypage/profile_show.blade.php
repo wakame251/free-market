@@ -17,7 +17,7 @@
       </div>
 
       <div class="mypage__name">
-        {{ $profile->users_name ?? $user->user_name ?? 'ユーザー名' }}
+        {{ $user->user_name ?? 'ユーザー名' }}
       </div>
 
       <div class="mypage__edit">
