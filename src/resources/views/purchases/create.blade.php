@@ -12,7 +12,6 @@
 <form method="POST" action="{{ route('purchase.store', ['item_id' => $item->id]) }}">
   @csrf
 
-  {{-- 配送先（必須） --}}
   <input type="hidden" name="post_code" value="{{ $post_code }}">
   <input type="hidden" name="address" value="{{ $address }}">
   <input type="hidden" name="building" value="{{ $building }}">
@@ -21,8 +20,8 @@
     <div class="purchase__left">
       <div class="purchase__item">
         <div class="purchase__image">
-          @if ($item->image_path)
-            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->item_name }}">
+          @if ($item->image_url)
+            <img src="{{ $item->image_url }}" alt="{{ $item->item_name }}">
           @else
             <div class="purchase__image-placeholder">商品画像</div>
           @endif
@@ -43,11 +42,11 @@
           <div class="form-error">{{ $message }}</div>
         @enderror
 
-          <select class="purchase__select" name="payment_method" id="payment_method" dusk="payment-method-select">
-            <option value="" selected>選択してください</option>
-            <option value="konbini">コンビニ払い</option>
-            <option value="card">カード払い</option>
-          </select>
+        <select class="purchase__select" name="payment_method" id="payment_method" dusk="payment-method-select">
+          <option value="" selected>選択してください</option>
+          <option value="konbini">コンビニ払い</option>
+          <option value="card">カード払い</option>
+        </select>
       </div>
 
       <hr class="purchase__hr">
@@ -98,10 +97,8 @@
     return '未選択';
   };
 
-  // 初期反映
   summary.textContent = label(select.value);
 
-  // 即時反映
   select.addEventListener('change', () => {
     summary.textContent = label(select.value);
   });
