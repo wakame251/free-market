@@ -43,7 +43,7 @@
 
 ### ③cp .env.example .env
 
-_.envのDB設定を以下に変更_
+_.envを作成後、以下の設定を確認・追記してください。_
 
 DB_HOST=mysql
 
@@ -53,13 +53,40 @@ DB_USERNAME=laravel_user
 
 DB_PASSWORD=laravel_pass
 
+
+MAIL_MAILER=smtp
+
+MAIL_HOST=mailhog
+
+MAIL_PORT=1025
+
+MAIL_USERNAME=null
+
+MAIL_PASSWORD=null
+
+MAIL_ENCRYPTION=null
+
+MAIL_FROM_ADDRESS=no-reply@example.com
+
+MAIL_FROM_NAME="COACHTECH"
+
+
+STRIPE_KEY=your_stripe_publishable_key
+
+STRIPE_SECRET=your_stripe_secret_key
+
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+
+APP_URL=http://localhost
+
+※ Stripeのキーは、各自でStripeのテスト用キーを取得して設定してください。
+
+
 ### ④ php artisan key:generate
 
 ### ⑤ php artisan storage:link
 
-### ⑥ php artisan migrate
-
-### ⑦ php artisan db:seed
+### ⑥ php artisan migrate --seed
 
 ## テストケースについて
 
@@ -76,6 +103,8 @@ php artisan test
 ### ・ログイン画面:http://localhost/login
 
 ### ・phpMyAdmin：http://localhost:8080/
+
+### ・MailHog:http://localhost:8025/
 
 # テストに使用したアカウント
 
@@ -116,5 +145,3 @@ php artisan test
 ---
 
 <img width="3542" height="3087" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/6c336b2e-f213-40ce-a658-fd026fced90e" />
-
-
